@@ -1,0 +1,113 @@
+.about {
+  padding: 5rem 0;
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.about h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #646cff;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.stat {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: rgba(100, 108, 255, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(100, 108, 255, 0.2);
+}
+
+.stat h3 {
+  font-size: 2rem;
+  color: #646cff;
+  margin-bottom: 0.5rem;
+}
+
+.stat p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.about-image {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.about-image::before {
+  content: '';
+  position: absolute;
+  width: 370px;
+  height: 370px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(100, 108, 255, 0.1) 0%, rgba(100, 108, 255, 0.05) 70%);
+  border: 2px solid rgba(100, 108, 255, 0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(100, 108, 255, 0.2);
+  animation: float 6s ease-in-out infinite;
+}
+
+.image-container {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 2px solid #646cff;
+  position: relative;
+  z-index: 1;
+  transition: transform 2s ease;
+}
+
+.about-image:hover .image-container {
+  transform: rotateY(1800deg);
+  background-image: url('../assets/pro-purple.png') !important;
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .about-image .placeholder-image {
+    width: 200px;
+    height: 200px;
+  }
+}

@@ -1,0 +1,25 @@
+.App {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  min-height: 100vh;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: inherit;
+  background-color: inherit;
+  color: inherit;
+}
