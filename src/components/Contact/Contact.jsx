@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Contact.css';
 import AnimatedBackground from '../shared/AnimatedBackground';
 import emailjs from '@emailjs/browser';
+import { toast } from 'react-toastify';
 
 // EmailJS configuration from environment variables
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
@@ -14,6 +15,7 @@ const Contact = () => {
     email: '',
     message: ''
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -24,6 +26,7 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
     emailjs.send(
       SERVICE_ID,
@@ -37,12 +40,15 @@ const Contact = () => {
     )
     .then((result) => {
       console.log('Email sent:', result.text);
-      alert('Message sent successfully!');
+      toast.success('Message sent successfully!');
       setFormData({ name: '', email: '', message: '' });
     })
     .catch((error) => {
       console.error('Error:', error);
-      alert('Failed to send message. Please try again.');
+      toast.error('Failed to send message. Please try again.');
+    })
+    .finally(() => {
+      setIsLoading(false);
     });
   };
 
@@ -100,6 +106,7 @@ const Contact = () => {
                 value={formData.name}
                 onChange={handleChange}
                 required
+                disabled={isLoading}
               />
             </div>
             <div className="form-group">
@@ -110,6 +117,7 @@ const Contact = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
+                disabled={isLoading}
               />
             </div>
             <div className="form-group">
@@ -120,9 +128,12 @@ const Contact = () => {
                 onChange={handleChange}
                 rows="5"
                 required
+                disabled={isLoading}
               ></textarea>
             </div>
-            <button type="submit" className="btn primary">Send Message</button>
+            <button type="submit" className="btn primary" disabled={isLoading}>
+              {isLoading ? 'Sending...' : 'Send Message'}
+            </button>
           </form>
         </div>
       </div>
