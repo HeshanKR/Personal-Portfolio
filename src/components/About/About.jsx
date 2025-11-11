@@ -37,7 +37,7 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="about-image">
+          <div className="about-image" style={{ '--hover-bg': `url(${proPurple})` }}>
             <div className="image-container" style={{backgroundImage: `url(${proPic})`}}></div>
           </div>
         </div>

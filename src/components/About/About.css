@@ -91,7 +91,7 @@
 
 .about-image:hover .image-container {
   transform: rotateY(1800deg);
-  background-image: url('../assets/pro-purple.png') !important;
+  background-image: var(--hover-bg) !important;
 }
 
 @media (max-width: 768px) {
